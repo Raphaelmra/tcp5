@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TesteHanna.unity
+    guid: 06452e2418e546345a5063ed5d27622e
+  - enabled: 1
+    path: Assets/Scenes/Teste.unity
+    guid: 6eaae43bad798104c938d36ab21c5af3
   m_configObjects: {}
