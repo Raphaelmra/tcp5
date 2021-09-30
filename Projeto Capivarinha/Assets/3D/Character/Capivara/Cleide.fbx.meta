@@ -24,6 +24,21 @@ ModelImporter:
   - first:
       74: 1255625473889517934
     second: rig|Cleide_Walk (22)
+  - first:
+      74: -5608425520897496899
+    second: rig|Cleide_Bucket
+  - first:
+      74: 6566995875623057456
+    second: rig|Cleide_Idle1
+  - first:
+      74: 7812442234850698036
+    second: rig|Cleide_Jump
+  - first:
+      74: 1921509256372576222
+    second: rig|Cleide_Push
+  - first:
+      74: -5374096132734071901
+    second: rig|Cleide_Walk
   externalObjects: {}
   materials:
     materialImportMode: 1
