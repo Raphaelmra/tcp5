@@ -108,6 +108,11 @@ public class WaterController : MonoBehaviour
             AguaUI.SetActive(true);
             temBalde = true;
         }
+        if (other.tag == "trofeu")
+        {
+            other.gameObject.SetActive(false);
+            
+        }
         if (other.tag == "fogo")
         {
 

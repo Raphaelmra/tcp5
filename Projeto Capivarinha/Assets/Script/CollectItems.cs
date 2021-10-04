@@ -25,5 +25,11 @@ public class CollectItems : MonoBehaviour
             Baldinho.SetActive(true);
             AguaUI.SetActive(true);
         }
+
+        if (other.tag == "trofeu")
+        {
+            other.gameObject.SetActive(false);
+            
+        }
     }
 }
