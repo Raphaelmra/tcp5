@@ -56,5 +56,11 @@ public class InputController : MonoBehaviour
         else
             return false;
     }
+
+    public bool GetWater()
+    {
+        return _controls.Player.ApagarFogo.triggered;
+     
+    }
     
 }

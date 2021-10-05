@@ -9,6 +9,10 @@ public class WaterController : MonoBehaviour
     public GameObject AguaUI;
     public bool temBalde;
     public float health = 10;
+
+    private InputController _inputController;
+
+
     public float Health
     {
         get
@@ -39,7 +43,10 @@ public class WaterController : MonoBehaviour
     private void Start()
     {
         Health = 0;
+
+        _inputController = InputController.Instance;
         
+
     }
     private void Update()
     {
@@ -50,7 +57,7 @@ public class WaterController : MonoBehaviour
 
        if(textoLago.activeSelf)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (_inputController.GetWater())
             {
                 Health = 14;
             }
@@ -58,7 +65,7 @@ public class WaterController : MonoBehaviour
         }
         if (tentarApagarFogo)
         {
-            if (Input.GetKey(KeyCode.F))
+            if (_inputController.GetWater())
             {
                 TentarApagarFogo(fogo);
             }
