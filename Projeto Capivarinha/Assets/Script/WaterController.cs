@@ -13,6 +13,7 @@ public class WaterController : MonoBehaviour
     private InputController _inputController;
 
 
+
     public float Health
     {
         get
@@ -39,19 +40,26 @@ public class WaterController : MonoBehaviour
     public bool tentarApagarFogo;
 
     public GameObject fogo;
+
+    [SerializeField]
+    private GameObject _agua;
+
+    public CanvasManager _canvasManager;
     //public AudioSource Dano;
     private void Start()
     {
         Health = 0;
 
         _inputController = InputController.Instance;
+
+       // _canvasManager = new CanvasManager();
         
 
     }
     private void Update()
     {
-        
 
+        AguaNoBalde();
       
        
 
@@ -106,7 +114,7 @@ public class WaterController : MonoBehaviour
         texto.text = value2 + "%";
         
     }
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
         if (other.tag == "baldinho")
         {
@@ -152,12 +160,15 @@ public class WaterController : MonoBehaviour
     public void TentarApagarFogo(GameObject fogo)
     {
            
-            if (porcentagem >= porcentagemParaApagarFogo)
+            if (porcentagem >= porcentagemParaApagarFogo )
             {
                 fogo.gameObject.SetActive(false);
+                Health -= 1f;
                 textoFogoText.text = "Parabéns, você apagou o fogo";
+                _canvasManager.ApagouFogo();
+                
             }
-            else
+            else 
             {
                 textoFogoText.text = "É necessário mais água para apagar esse fogo";
             }
@@ -170,8 +181,19 @@ public class WaterController : MonoBehaviour
         textoFogo.SetActive(false);
         tentarApagarFogo = false;
 
+
     }
 
-
+    public void AguaNoBalde()
+    {
+        if(porcentagem >= porcentagemParaApagarFogo)
+        {
+            _agua.SetActive(true);
+        }
+        else
+        {
+            _agua.SetActive(false);
+        }
+    }
 
 }
