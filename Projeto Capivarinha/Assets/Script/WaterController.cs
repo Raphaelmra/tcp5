@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class WaterController : MonoBehaviour
 {
+    public Image imagem;
+    public Sprite baldeVazio;
+    public Sprite baldeCheio;
+
     public GameObject Baldinho;
     public GameObject AguaUI;
     public bool temBalde;
@@ -48,6 +52,7 @@ public class WaterController : MonoBehaviour
     //public AudioSource Dano;
     private void Start()
     {
+        imagem.sprite = baldeVazio;
         Health = 0;
 
         _inputController = InputController.Instance;
@@ -68,6 +73,7 @@ public class WaterController : MonoBehaviour
             if (_inputController.GetWater())
             {
                 Health = 14;
+                imagem.sprite = baldeCheio;
             }
 
         }
@@ -76,11 +82,15 @@ public class WaterController : MonoBehaviour
             if (_inputController.GetWater())
             {
                 TentarApagarFogo(fogo);
+                imagem.sprite = baldeVazio;
             }
         }
-      
-       
+      if(Health <= 7)
+        {
+            imagem.sprite = baldeVazio;
 
+        }
+        
 
      
       
@@ -122,6 +132,7 @@ public class WaterController : MonoBehaviour
             Baldinho.SetActive(true);
             AguaUI.SetActive(true);
             temBalde = true;
+
         }
         if (other.tag == "trofeu")
         {
@@ -163,7 +174,7 @@ public class WaterController : MonoBehaviour
             if (porcentagem >= porcentagemParaApagarFogo )
             {
                 fogo.gameObject.SetActive(false);
-                Health -= 1f;
+                Health -= 7f;
                 textoFogoText.text = "Parabéns, você apagou o fogo";
                 _canvasManager.ApagouFogo();
                 

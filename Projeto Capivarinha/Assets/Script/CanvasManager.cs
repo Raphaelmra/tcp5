@@ -7,6 +7,7 @@ public class CanvasManager : MonoBehaviour
 {
    
 
+
     public Image fogos1, fogos2, fogos3;
 
     private int _num;
